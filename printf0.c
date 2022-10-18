@@ -33,6 +33,7 @@ int _printf(const char *format, ...)
 					character = va_arg(parameter_list, int);
 					putchar(character);
 					char_counter++;
+					len++;
 					break;
 				case 's':
 					parameter_content = va_arg(parameter_list, char*);
@@ -42,15 +43,21 @@ int _printf(const char *format, ...)
 						char_param_counter++;
 					}
 					char_counter++;
+					len++;
+					break;
+				case '%':
+					putchar(format[char_counter]);
+					char_counter++;
+					len++;
 					break;
 				default:
 					putchar(format[char_counter]);
 					break;
 			}
 		}
-	}
+i	}
 	va_end(parameter_list);
-	return(char_counter);
+	return((char_counter - len) + char_param_counter);
 }
 
 int main (void)
@@ -60,6 +67,5 @@ int main (void)
 	putchar('\n');
 	printf("%d", num);
 	putchar('\n');
-	return(len);
 }
 
