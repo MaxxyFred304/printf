@@ -11,16 +11,14 @@
 
 int _printf(const char *format, ...)
 
-{
+	va_list arg;
 
-    va_list arg;
+       	int done;
 
-    int done;
+       	va_start(arg, format);
 
-    va_start(arg, format);
+	done = vfprintf(stdout, format, arg);
 
-    done = vfprintf(stdout, format, arg); 
+	return(done);
 
-    return(done);
-
-} 
+}
