@@ -10,7 +10,7 @@
  */
 
 int _printf(const char *format, ...)
-
+{
 	va_list arg;
 
        	int done;
