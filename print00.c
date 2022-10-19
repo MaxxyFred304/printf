@@ -1,3 +1,14 @@
+#include "main.h"
+
+/**
+ *_printf - prints output from the specifier
+ *
+ * @format: pointer
+ *
+ * Return: input len
+ *
+ */
+
 int _printf(const char *format, ...)
 
 {
@@ -8,9 +19,7 @@ int _printf(const char *format, ...)
 
     va_start(arg, format);
 
-    done = vfprintf(stdout, format, arg);
-
-    
+    done = vfprintf(stdout, format, arg); 
 
     return(done);
 
